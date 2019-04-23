@@ -61,13 +61,17 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a href="{{ route('department-list') }}"><i class="fa fa-building"></i> Departments <span
+                                <li><a href="{{route('teamrole-list')}}"><i class="fa fa-building"></i>Team Role<span
                                             class="fa fa-chevron-right"></span></a>
                                 </li>
-                                <li>
-                                    <a href="{{route('employee-list')}}"><i class="fa fa-user"></i> Employees <span
+                                <li><a href="{{route('team-list')}}"><i class="fa fa-building"></i>Team Members<span
                                             class="fa fa-chevron-right"></span></a>
                                 </li>
+                                <li><a href="{{route('msg-list')}}"><i class="fa fa-building"></i>Message<span
+                                            class="fa fa-chevron-right"></span></a>
+                                </li>
+                                
+                                
                                 
                             </ul>
                         </div>
@@ -151,7 +155,8 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js')}}" ></script>
+    @yield('scripts')
 </body>
 
 </html>

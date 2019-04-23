@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Aimeos\Shop\ShopServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

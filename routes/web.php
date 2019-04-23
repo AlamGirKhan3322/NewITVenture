@@ -21,22 +21,34 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/','DashboardController@admin')->name('admin-dashboard');
-
-    Route::group(['prefix'=>'department'],function(){
-        Route::get('/','DepartmentController@getDepartment')->name('department-list');
-        Route::get('/add','DepartmentController@showDepartmentForm')->name('department-add');
-        Route::post('/post','DepartmentController@postDepartment')->name('post-department');
-        Route::get('/delete/{id}','DepartmentController@deleteDepartment')->name('department-delete');
-        Route::get('/update/{id}','DepartmentController@showDepartmentForm')->name('department-edit');
-        Route::post('/update/{id}','DepartmentController@postDepartment')->name('update-department');
-    });
-
-    Route::group(['prefix'=>'employee'],function(){
-        Route::get('/','EmployeeController@getEmployee')->name('employee-list');
-        Route::get('/add','EmployeeController@showEmployeeForm')->name('employee-add');
-        Route::post('/post','EmployeeController@postEmployee')->name('post-employee');
-        Route::get('/delete/{id}','EmployeeController@deleteEmployee')->name('employee-delete');
-        Route::get('/update/{id}','EmployeeController@showEmployeeForm')->name('employee-edit');
-        Route::post('/update/{id}','EmployeeController@postEmployee')->name('update-employee');
-    });
+        
+        //Route::get('/','PaymentController@showForm')->name('form-show');
+        // Route::post('/post','ProductController@postProductOne')->name('post-productone');
+        
+    
 });
+Route::group(['prefix'=>'teamrole'],function(){
+        Route::get('/','TeamController@getTeamRole')->name('teamrole-list');
+        Route::get('/add','TeamController@showTeamRoleForm')->name('teamrole-add');
+        Route::post('/post','TeamController@postTeamRole')->name('post-teamrole');
+        Route::post('/edit/{id}','TeamController@postTeamRole')->name('update-teamrole');
+        Route::get('/delete/{id}','TeamController@deleteTeamRole')->name('delete-teamrole');
+        Route::get('/edit/{id}','TeamController@showTeamRoleForm')->name('edit-teamrole');
+    });
+Route::group(['prefix'=>'team'],function(){
+        Route::get('/','TeamController@getTeam')->name('team-list');
+        Route::get('/add','TeamController@showTeamForm')->name('team-add');
+        Route::post('/post','TeamController@postTeam')->name('post-team');
+        Route::post('/edit/{id}','TeamController@postTeam')->name('update-team');
+        Route::get('/delete/{id}','TeamController@deleteTeam')->name('delete-team');
+        Route::get('/edit/{id}','TeamController@showTeamForm')->name('edit-team');
+    });
+    Route::group(['prefix'=>'msg'],function(){
+        Route::get('/','MsgController@getMsg')->name('msg-list');
+        Route::get('/add','MsgController@showMsgForm')->name('msg-add');
+        Route::post('/post','MsgController@postMsg')->name('post-msg');
+        Route::post('/edit/{id}','MsgController@postMsg')->name('update-msg');
+        Route::get('/delete/{id}','MsgController@deleteMsg')->name('delete-msg');
+        Route::get('/edit/{id}','MsgController@showMsgForm')->name('edit-msg');
+        Route::get('/role/{id}','TeamController@getMemberByRoleId');
+    });
